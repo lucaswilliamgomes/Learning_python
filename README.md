@@ -1,6 +1,6 @@
 # <img src="http://icons.iconarchive.com/icons/papirus-team/papirus-apps/256/python-icon.png" width="30" height="30" />  Learning python
 
- > This repository is for save python files and assist me in __Python__ <img src="http://icons.iconarchive.com/icons/papirus-team/papirus-apps/256/python-icon.png" width="12" height="12" /> , __English__ <img src="https://image.flaticon.com/icons/svg/1377/1377975.svg" width="12" height="12" />  and __Markdown__ <img src="https://cdn0.iconfinder.com/data/icons/octicons/1024/markdown-512.png" width="12" height="12" /> studies
+ > This repository is for save python exercices, help me remember some python features <img src="http://icons.iconarchive.com/icons/papirus-team/papirus-apps/256/python-icon.png" width="12" height="12" />  and assist me in __English__ <img src="https://image.flaticon.com/icons/svg/1377/1377975.svg" width="12" height="12" />  and __Markdown__ <img src="https://cdn0.iconfinder.com/data/icons/octicons/1024/markdown-512.png" width="12" height="12" /> studies
 
 ## functionalities built-in python 
 
@@ -58,8 +58,35 @@ print(pairs)
 [Terminal]
 > [10, 20, 2]
 ````
+### Decorators 
+> Decorators are quick ways to add behaviors before and after the decorated function is executed
 
-### Groupy in Intertools
+````python 
+#This code calculate the time execution of the count function using a decorator 
+from time import time
+
+def calculator_time (func):
+    def wrapper ():
+        init_time = time()
+        func()
+        end_time = time()
+        time_ = end_time - init_time
+        print(f'The time execution the function {func.__name__} was {time_:.2f} seconds')  
+    return wrapper
+
+@calculator_time
+def count ():
+    for x in range (100000000):
+        pass
+
+count()
+
+[Terminal]
+> The time execution the function count was 5.38 seconds
+````
+
+## In standard python libraries
+### Groupy in intertools
 > receives an __ordered list__, separated into groups and returns an iterable
 ````python 
 from itertools import groupby 
