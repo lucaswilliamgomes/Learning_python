@@ -59,6 +59,40 @@ print(pairs)
 > [10, 20, 2]
 ````
 
+### Groupy in Intertools
+> receives an __ordered list__, separated into groups and returns an iterable
+````python 
+from itertools import groupby 
+
+studente_notes = [
+    {'Name': 'Luiz', 'Note': 9},
+    {'Name': 'maria', 'Note': 10},
+    {'Name': 'Jose', 'Note': 8},
+    {'Name': 'Gadiel', 'Note': 9},
+    {'Name': 'Roque', 'Note': 8}]
+
+key_to_sort = lambda item: item ['Note']
+studente_notes.sort(key=key_to_sort, reverse=True)
+studentes_grouped = groupby(studente_notes, key= key_to_sort)
+
+for group, students in studentes_grouped:
+    print(f'Note {group}')
+    for student in students:
+        print(student)
+
+[Terminal]
+> Note 10
+> {'Name': 'maria', 'Note': 10}
+> Note 9
+> {'Name': 'Luiz', 'Note': 9}  
+> {'Name': 'Gadiel', 'Note': 9}
+> Note 8
+> {'Name': 'Jose', 'Note': 8}
+> {'Name': 'Roque', 'Note': 8}
+````
+
+
+
 
 
 
