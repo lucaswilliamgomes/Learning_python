@@ -17,7 +17,7 @@ def add (*args):
 total = add(10, 20, 2, 5)
 print(total)
 
-[terminal]
+[Terminal]
 > (10, 20, 2, 5)
 > 37
 ````
@@ -37,8 +37,27 @@ menu(name = 'Lucas', age = 18)
 > age = 18
 ````
 
-* Lambda expressions (Functions anonymous) 
-> 
+### Lambda expressions (Functions anonymous) 
+> Lambda expressions are concise functions that don't have name
+
+````Python
+add = lambda *args: sum(args)
+print(add(10, 20, 2, 5))
+
+[Terminal]
+> 37
+````
+
+### List comprehensions
+> Is a form concise of manipulated a list
+````Python 
+list_1 = [10, 20, 2, 5, 9]
+pairs = [num for num in list_1 if num % 2 == 0]
+print(pairs)
+
+[Terminal]
+> [10, 20, 2]
+````
 
 
 
