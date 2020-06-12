@@ -5,7 +5,7 @@
 ## functionalities built-in python 
 
 ### *args and **kwargs
-> *args is used when it is not known how many unnamed arguments the function will receive.  
+> __*args__ is used when it is not known how many unnamed arguments the function will receive.  
 When is used args inside the function is created a tuple with the arguments used.
 ````python 
 def add (*args):
@@ -21,7 +21,7 @@ print(total)
 > (10, 20, 2, 5)
 > 37
 ````
-> **kwargs is used when it is not known how many named arguments the function will receive.  
+> __**kwargs__ is used when it is not known how many named arguments the function will receive.  
 When is used kwargs inside the function is created a dict with the keys and values used.
 ````python 
 def menu (**kwargs):
@@ -38,7 +38,7 @@ menu(name = 'Lucas', age = 18)
 ````
 
 ### Lambda expressions (Functions anonymous) 
-> Lambda expressions are concise functions that don't have name
+> __Lambda expressions__ are concise functions that don't have name
 
 ````Python
 add = lambda *args: sum(args)
@@ -59,7 +59,7 @@ print(pairs)
 > [10, 20, 2]
 ````
 ### Decorators 
-> Decorators are quick ways to add behaviors before and after the decorated function is executed
+> __Decorators__ are quick ways to add behaviors before and after the decorated function is executed
 
 ````python 
 #This code calculate the time execution of the count function using a decorator 
@@ -83,6 +83,60 @@ count()
 
 [Terminal]
 > The time execution the function count was 5.38 seconds
+````
+## Object oriented programming
+
+### Getter and Setter
+> The __Getter__ is a way of transform the instance attribute in a variable inside class (class attribute) for modify it.
+    
+__Getter struct__
+```` python 
+    #Getter
+    @property
+    def nick_less_numbers (self):
+        return self._nick
+````
+> The __Setter__ is for modify the class attribute created with the __Getter__  
+
+__Setter struct__
+````Python
+@nick_less_numbers.setter
+    def nick_less_numbers (self, valor):
+        x = 0 
+        while x < len(valor):
+            if valor[x].isdigit():
+                valor = valor.replace(valor[x], '')
+                x -= 1
+            x += 1
+        self._nick = valor
+````
+__together__
+````python 
+ class Nickname:
+    def __init__(self, nickname):
+        self.nick = nickname
+        self.nick_less_numbers = nickname
+    
+    @property
+    def nick_less_numbers (self):
+        return self._nick
+
+    @nick_less_numbers.setter
+    def nick_less_numbers (self, valor):
+        x = 0 
+        while x < len(valor):
+            if valor[x].isdigit():
+                valor = valor.replace(valor[x], '')
+                x -= 1
+            x += 1
+        self._nick = valor
+
+if __name__ == "__main__":
+    gamer1 = Nickname('lucas133')
+    print(gamer1.nick_less_numbers)
+
+[Terminal]
+> lucas
 ````
 
 ## In standard python libraries
