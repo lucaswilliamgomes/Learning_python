@@ -7,7 +7,7 @@ class Conta(ABC):
         self.nome = nome
         self.agencia = agencia
         self.conta = conta
-        self.saldo = saldo
+        self.saldo = float(saldo)
 
     #@property
     #def saldo (self):
@@ -22,11 +22,16 @@ class Conta(ABC):
 
 
 class Poupanca (Conta):
-    def __init__ (self, nome, agencia, conta, saldo):
+    def __init__ (self, nome, agencia, conta, saldo, limite = 0):
         super().__init__(nome, agencia, conta, saldo)
-
+        self.limite = 0
     def saque (self, valor):
-        pass
+        if valor > self.saldo + self.limite:
+            print('Saldo insuficiente !')
+        else:
+            self.saldo -= valor
+            print('Saque realizado com sucesso')
+
 
 class Corrente (Conta):
     def __init__ (self, nome, agencia, conta, saldo, limite = 100):
@@ -34,7 +39,12 @@ class Corrente (Conta):
         self.limite = limite
     
     def saque (self, valor):
-        pass
+        if valor > self.saldo + self.limite:
+            print('Saldo insuficiente !')
+        else:
+            self.saldo -= valor
+            print('Saque realizado com sucesso')
+
 
 
 
