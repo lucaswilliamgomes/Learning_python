@@ -2,6 +2,19 @@ import Classes
 from time import sleep
 
 
+def validate_int (receptor, key, pergunta):
+    
+    while True:
+        receptor[key] = input (pergunta).strip()
+        if receptor[key].isdigit() and len(receptor[key]) == 4:
+            break
+        else:
+            print('Error')
+    return receptor[key]
+
+
+
+
 def menu ():
     print(""" 
             BANCO
@@ -17,8 +30,9 @@ def cadastrar_conta ():
     usuarios.append (dict())
     index = len(usuarios) - 1
     usuarios [index] ['Nome'] = input ('Digite o nome do dono da conta: ')
-    usuarios [index] ['Agencia'] = input ('Digite o numero da agencia de cadastro [4 digitos]: ')
-    usuarios [index] ['Conta'] = input ('Digite o numero da conta de cadastro [4 digitos]: ')
+    usuarios [index] ['Agencia'] = validate_int( usuarios [index], 'Agencia' , 'Digite o numero da agencia de cadastro [4 digitos]: ' )
+    usuarios [index] ['Conta'] = validate_int( usuarios [index], 'Conta' , 'Digite o numero da conta de cadastro [4 digitos]: ' )
+
     usuarios [index] ['Saldo'] = input ('Digite o valor do deposito inicial: ')
     usuarios [index] ['Tipo'] = input ('Digite o tipo de conta [Poupanca ou Corrente]: ').lower().strip()
  
